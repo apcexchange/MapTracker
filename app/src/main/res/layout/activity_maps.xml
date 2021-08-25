@@ -35,10 +35,4 @@
         android:text="permission is needed to track flex this App"
         android:visibility="gone"/>
 
-
-
-
-
-
-
 </fragment>

@@ -1,5 +1,6 @@
 package com.example.mapactivity.secondImplementation
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -77,9 +78,8 @@ class PokemonActivity : AppCompatActivity(), OnClickPokemon {
     }
 
     override fun accessPokemonDetails(position: Int, name: String, url: String) {
-        TODO("Not yet implemented")
+    val intent =Intent(this,PokemonDetailActivity::class.java)
+        intent.putExtra("pokemonDetails",url)
+        startActivity(intent)
     }
-
-    //move to next activity
-
 }

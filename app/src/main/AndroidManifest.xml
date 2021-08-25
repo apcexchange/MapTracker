@@ -17,9 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MapActivity">
         <activity
+            android:name=".secondImplementation.PokemonDetailActivity"
+            android:exported="true" />
+        <activity
             android:name=".MapsActivity"
             android:exported="true"
-            android:label="@string/title_activity_maps"/>
+            android:label="@string/title_activity_maps" />
         <activity
             android:name=".secondImplementation.PokemonActivity"
             android:exported="true" />

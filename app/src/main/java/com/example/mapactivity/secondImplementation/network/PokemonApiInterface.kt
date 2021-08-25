@@ -16,5 +16,5 @@ interface PokemonApiInterface {
 
 
     @GET("pokemon/{id}")
-    fun getPokemonKey(@Path("id") id:Int): Call<Pokemon>
+    fun getPokemonKey(@Path("id") id:String): Call<Pokemon>
 }

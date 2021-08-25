@@ -26,6 +26,7 @@ class PokemonListAdapter(val context: Context, private var onClickPokemon: OnCli
         internal var txt_pokemonNuber: TextView = itemView.findViewById(R.id.tvPokeListNumber) as TextView
 //        internal  var layout: CardView = itemView.findViewById(R.id.list_item)
 
+
     }
 
     override fun onCreateViewHolder(

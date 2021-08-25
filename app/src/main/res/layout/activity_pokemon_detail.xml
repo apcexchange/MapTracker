@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".secondImplementation.PokemonDetailActivity">
+
+    <TextView
+        android:id="@+id/tvdName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pokimon Detail"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <ImageView
+        android:id="@+id/ivdImage"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvdWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="weight" />
+
+            <TextView
+                android:id="@+id/tvdHeigth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Heigth" />
+
+            <TextView
+                android:id="@+id/tvdAbilities"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Abilities" />
+
+
+            <TextView
+                android:id="@+id/tvdBase_Exp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Base_Exp" />
+
+            <TextView
+                android:id="@+id/tvdForm_List"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Form_List" />
+
+            <TextView
+                android:id="@+id/tvdGame_Index"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Game_Index" />
+
+            <TextView
+                android:id="@+id/tvdHeld_Items"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Held_Items" />
+
+            <TextView
+                android:id="@+id/tvdMovies_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Movies-List" />
+
+            <TextView
+                android:id="@+id/tvdOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order" />
+
+            <TextView
+                android:id="@+id/tvdSpecies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Species" />
+
+            <TextView
+                android:id="@+id/tvdStarts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Starts" />
+
+            <TextView
+                android:id="@+id/tvdType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Type" />
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+    <!--    <RelativeLayout-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent">-->
+
+    <!--        <androidx.cardview.widget.CardView-->
+    <!--            android:id="@+id/card_view"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginLeft="16dp"-->
+    <!--            android:layout_marginTop="80dp"-->
+    <!--            android:layout_marginRight="16dp"-->
+    <!--            app:cardBackgroundColor="@color/white"-->
+    <!--            app:cardCornerRadius="16dp"-->
+    <!--            app:cardElevation="0dp">-->
+
+    <!--            <LinearLayout-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="wrap_content"-->
+    <!--                android:layout_marginTop="150dp"-->
+    <!--                android:gravity="center_horizontal"-->
+    <!--                android:orientation="vertical"-->
+    <!--                android:padding="16dp">-->
+
+    <!--                <TextView-->
+    <!--                    android:id="@+id/name"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:text="Pokemon name"-->
+    <!--                    android:textAlignment="center"-->
+    <!--                    android:textSize="25sp"-->
+    <!--                    android:textStyle="bold" />-->
+
+    <!--                <TextView-->
+    <!--                    android:id="@+id/height"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginBottom="10dp"-->
+    <!--                    android:text="Height"-->
+    <!--                    android:textAlignment="center"-->
+    <!--                    android:textSize="16sp"-->
+    <!--                    android:textStyle="bold" />-->
+
+    <!--                <TextView-->
+    <!--                    android:id="@+id/weight"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginBottom="10dp"-->
+    <!--                    android:text="Weight"-->
+    <!--                    android:textAlignment="center"-->
+    <!--                    android:textSize="16sp"-->
+    <!--                    android:textStyle="bold" />-->
+
+    <!--                <TextView-->
+    <!--                    android:id="@+id/type"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginBottom="10dp"-->
+    <!--                    android:text="Type"-->
+    <!--                    android:textAlignment="center"-->
+    <!--                    android:textSize="16sp"-->
+    <!--                    android:textStyle="bold" />-->
+
+    <!--                <androidx.recyclerview.widget.RecyclerView-->
+    <!--                    android:id="@+id/recycler_type"-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="40dp"-->
+    <!--                    android:layout_marginBottom="10dp" />-->
+
+    <!--                <TextView-->
+    <!--                    android:id="@+id/weakness"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginBottom="10dp"-->
+    <!--                    android:text="Weakness"-->
+    <!--                    android:textAlignment="center"-->
+    <!--                    android:textSize="16sp"-->
+    <!--                    android:textStyle="bold" />-->
+
+    <!--                <androidx.recyclerview.widget.RecyclerView-->
+    <!--                    android:id="@+id/recycler_weakness"-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="40dp"-->
+    <!--                    android:layout_marginBottom="10dp" />-->
+
+    <!--                <TextView-->
+    <!--                    android:id="@+id/prev"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginBottom="10dp"-->
+    <!--                    android:text="Prev Evolution"-->
+    <!--                    android:textAlignment="center"-->
+    <!--                    android:textSize="16sp"-->
+    <!--                    android:textStyle="bold" />-->
+
+    <!--                <androidx.recyclerview.widget.RecyclerView-->
+    <!--                    android:id="@+id/recycler_prev_evolution"-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="40dp"-->
+    <!--                    android:layout_marginBottom="10dp" />-->
+
+    <!--                <TextView-->
+    <!--                    android:id="@+id/next_evolution"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginBottom="10dp"-->
+    <!--                    android:text="Next Evolution"-->
+    <!--                    android:textAlignment="center"-->
+    <!--                    android:textSize="16sp"-->
+    <!--                    android:textStyle="bold" />-->
+
+    <!--                <androidx.recyclerview.widget.RecyclerView-->
+    <!--                    android:id="@+id/recycler_next_evolution"-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="40dp"-->
+    <!--                    android:layout_marginBottom="10dp" />-->
+    <!--            </LinearLayout>-->
+    <!--        </androidx.cardview.widget.CardView>-->
+
+    <!--        <ImageView-->
+    <!--            android:id="@+id/pokemon_image"-->
+    <!--            android:layout_width="250dp"-->
+    <!--            android:layout_height="250dp"-->
+    <!--            android:layout_alignTop="@+id/card_view"-->
+    <!--            android:layout_centerHorizontal="true"-->
+    <!--            android:layout_marginTop="-70dp"-->
+    <!--            android:scaleType="centerCrop"-->
+    <!--            android:src="@drawable/ic_launcher_background" />-->
+
+    <!--    </RelativeLayout>-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
