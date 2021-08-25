@@ -11,4 +11,14 @@
     <string name="pokeNumber">pokeNumber</string>
     <string name="pokemon_logo">pokemon_logo</string>
     <string name="_1">#1</string>
+    <string name="pokeWeight">pokeWeight</string>
+    <string name="pokeHeight">pokeHeight</string>
+    <string name="weight">weight</string>
+    <string name="height">height</string>
+    <string name="base_stats">base_stats</string>
+    <string name="hp">HP</string>
+    <string name="def">DEF</string>
+    <string name="spd">SPD</string>
+    <string name="exp">EXP</string>
+    <string name="atk">ATK</string>
 </resources>

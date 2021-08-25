@@ -65,8 +65,9 @@ fun getPokemonDetails(endpoint : String){
             Log.d("TAG", "$it: log It")
             Log.d("TAG", "getPokemonDetails: capitalize", )
             //binding details to my textview
-            binding.tvdName.text = capitalizeName
-            binding.tvdHeigth.text = it.height.toString()
+            binding.detailPokeName.text = capitalizeName
+            binding.height.text = (it.height.toString() + " M")
+            binding.weight.text = (it.weight.toString() + " KG")
             Log.d("TAG", "getPokemonDetails: after capitalize", )
 
 
@@ -74,7 +75,7 @@ fun getPokemonDetails(endpoint : String){
             Glide.with(this)
                 .load("$POKEMON_IMAGE_BASE_URL$endpoint.png")
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(binding.ivdImage)
+                .into(binding.detailImage)
         }else{
             Toast.makeText(this,"error", Toast.LENGTH_SHORT).show()
         }

@@ -78,5 +78,9 @@ dependencies {
 //    logging interceptor
     implementation 'com.squareup.okhttp3:logging-interceptor:4.9.0'
 
+//    skydoves progressbar
+        implementation "com.github.skydoves:progressview:1.1.2"
+
+
 
 }
