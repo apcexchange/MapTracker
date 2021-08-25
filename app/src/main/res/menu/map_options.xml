@@ -5,7 +5,9 @@
     <item
         android:id="@+id/normal_map"
         android:title="@string/normal_map"
-        app:showAsAction="collapseActionView" />
+        android:icon="@drawable/ic_location"
+        app:showAsAction="collapseActionView"
+        />
     <item
         android:id="@+id/hybrid_map"
         android:title="@string/hybrid_map"
