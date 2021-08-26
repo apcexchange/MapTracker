@@ -1,120 +1,422 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detailPage"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".secondImplementation.PokemonDetailActivity">
 
-    <TextView
-        android:id="@+id/tvdName"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Pokimon Detail"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/ivdImage"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:ignore="MissingConstraints" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/detailImage"
+            android:layout_width="190dp"
+            android:layout_height="190dp"
+            android:layout_marginVertical="32dp"
+            android:translationZ="100dp"
+            android:scaleType="fitXY"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints">
-
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            app:cardElevation="@dimen/default_margin"
+            app:cardCornerRadius="@dimen/default_margin"
+            app:cardBackgroundColor="@color/white"
+            android:layout_marginVertical="@dimen/default_margin_large"
+            android:layout_marginHorizontal="@dimen/default_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/detailImage" >
 
-            <TextView
-                android:id="@+id/tvdWeight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="weight" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="@dimen/default_margin_large"
+                android:paddingTop="@dimen/default_margin">
 
-            <TextView
-                android:id="@+id/tvdHeigth"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Heigth" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/detailPokeName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/default_margin"
+                    android:layout_marginTop="@dimen/default_margin"
+                    android:fontFamily="@font/montserrat_alternates_bold"
+                    android:gravity="center"
+                    android:padding="@dimen/default_margin_mini"
+                    android:text="@string/pokeName"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tvdAbilities"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Abilities" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/detailPokeWeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/default_margin"
+                    android:fontFamily="@font/montserrat_alternates_bold"
+                    android:text="@string/pokeWeight"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toStartOf="@+id/detailPokeHeight"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/pokeTypeRecyclerView" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/detailPokeHeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/default_margin"
+                    android:fontFamily="@font/montserrat_alternates_bold"
+                    android:text="@string/pokeHeight"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/detailPokeWeight"
+                    app:layout_constraintTop_toBottomOf="@+id/pokeTypeRecyclerView" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/default_margin_small"
+                    android:fontFamily="@font/montserrat_alternates_bold"
+                    android:text="@string/weight"
+                    app:layout_constraintEnd_toEndOf="@+id/detailPokeWeight"
+                    app:layout_constraintStart_toStartOf="@+id/detailPokeWeight"
+                    app:layout_constraintTop_toBottomOf="@+id/detailPokeWeight" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/height"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/height"
+                    android:layout_margin="@dimen/default_margin_small"
+                    android:fontFamily="@font/montserrat_alternates_bold"
+                    app:layout_constraintEnd_toEndOf="@+id/detailPokeHeight"
+                    app:layout_constraintStart_toStartOf="@+id/detailPokeHeight"
+                    app:layout_constraintTop_toBottomOf="@+id/detailPokeHeight" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/baseStatsTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="@dimen/default_margin_large"
+                    android:gravity="center"
+                    android:text="@string/base_stats"
+                    android:fontFamily="@font/montserrat_alternates_bold"
+                    android:textSize="18sp"
+                    app:layout_constraintTop_toBottomOf="@+id/weight"
+                    />
+
+                <TextView
+                    android:id="@+id/hp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/default_margin_large"
+                    android:layout_marginTop="@dimen/default_margin_small"
+                    android:text="@string/hp"
+                    android:fontFamily="@font/montserrat_alternates_bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/baseStatsTitle" />
+
+                <com.skydoves.progressview.ProgressView
+                    android:id="@+id/progressHp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/default_margin_large"
+                    android:layout_marginStart="@dimen/default_margin_large"
+                    android:layout_marginEnd="@dimen/default_margin_large"
+                    app:progressView_min="0"
+                    app:progressView_max="300"
+                    app:progressView_colorGradientStart="@color/ghost"
+                    app:progressView_colorGradientEnd="@color/ghost"
+
+                    app:progressView_autoAnimate="true"
+                    app:layout_constraintBottom_toBottomOf="@id/hp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/hp"
+                    app:layout_constraintTop_toTopOf="@id/hp"
+                    app:progressView_colorBackground="@color/white"
+                    app:progressView_colorProgress="@color/design_default_color_secondary"
+                    app:progressView_labelColorInner="@color/white"
+                    app:progressView_labelColorOuter="@color/black"
+                    app:progressView_labelSize="14sp"
+                    app:progressView_radius="@dimen/default_margin_small" />
+
+                <TextView
+                    android:id="@+id/attack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/default_margin_large"
+                    android:layout_marginTop="@dimen/default_margin_small"
+                    android:text="@string/atk"
+                    android:fontFamily="@font/montserrat_alternates_bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/hp" />
+
+                <com.skydoves.progressview.ProgressView
+                    android:id="@+id/progressAtk"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/default_margin_large"
+                    android:layout_marginEnd="@dimen/default_margin_large"
+                    app:progressView_min="0"
+                    app:progressView_max="300"
+                    app:progressView_autoAnimate="true"
+                    app:progressView_colorGradientStart="@color/green"
+                    app:progressView_colorGradientEnd="@color/green"
+                    app:layout_constraintBottom_toBottomOf="@id/attack"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/progressHp"
+                    app:layout_constraintTop_toTopOf="@id/attack"
+                    app:progressView_colorBackground="@color/white"
+                    app:progressView_colorProgress="@color/design_default_color_secondary"
+                    app:progressView_labelColorInner="@color/white"
+                    app:progressView_labelColorOuter="@color/black"
+                    app:progressView_labelSize="@dimen/default_text_size"
+                    app:progressView_radius="@dimen/default_margin_small" />
+
+                <TextView
+                    android:id="@+id/defense"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/default_margin_large"
+                    android:layout_marginTop="@dimen/default_margin_small"
+                    android:text="@string/def"
+                    android:fontFamily="@font/montserrat_alternates_bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/attack" />
+
+                <com.skydoves.progressview.ProgressView
+                    android:id="@+id/progressDef"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/default_margin_large"
+                    android:layout_marginEnd="@dimen/default_margin_large"
+                    app:progressView_min="0"
+                    app:progressView_max="300"
+                    app:progressView_colorGradientStart="@color/water"
+                    app:progressView_colorGradientEnd="@color/water"
+                    app:progressView_autoAnimate="true"
+                    app:layout_constraintBottom_toBottomOf="@id/defense"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/progressHp"
+                    app:layout_constraintTop_toTopOf="@id/defense"
+                    app:progressView_colorBackground="@color/white"
+                    app:progressView_colorProgress="@color/design_default_color_secondary"
+                    app:progressView_labelColorInner="@color/white"
+                    app:progressView_labelColorOuter="@color/black"
+                    app:progressView_labelSize="@dimen/default_text_size"
+                    app:progressView_radius="@dimen/default_margin_small" />
+
+                <TextView
+                    android:id="@+id/speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/default_margin_large"
+                    android:layout_marginTop="@dimen/default_margin_small"
+                    android:text="@string/spd"
+                    android:fontFamily="@font/montserrat_alternates_bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/defense" />
+
+                <com.skydoves.progressview.ProgressView
+                    android:id="@+id/progressSpd"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/default_margin_large"
+                    android:layout_marginEnd="@dimen/default_margin_large"
+                    app:progressView_min="0"
+                    app:progressView_max="300"
+                    app:progressView_colorGradientStart="@color/fairy"
+                    app:progressView_colorGradientEnd="@color/psychic"
+                    app:progressView_autoAnimate="true"
+                    app:layout_constraintBottom_toBottomOf="@id/speed"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/progressHp"
+                    app:layout_constraintTop_toTopOf="@id/speed"
+                    app:progressView_colorBackground="@color/white"
+                    app:progressView_colorProgress="@color/design_default_color_secondary"
+                    app:progressView_labelColorInner="@color/white"
+                    app:progressView_labelColorOuter="@color/black"
+                    app:progressView_labelSize="@dimen/default_text_size"
+                    app:progressView_radius="@dimen/default_margin_small" />
+
+                <TextView
+                    android:id="@+id/exp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/default_margin_large"
+                    android:layout_marginTop="@dimen/default_margin_small"
+                    android:text="@string/exp"
+                    android:fontFamily="@font/montserrat_alternates_bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/speed" />
+
+                <com.skydoves.progressview.ProgressView
+                    android:id="@+id/progressExp"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/default_margin_large"
+                    android:layout_marginEnd="@dimen/default_margin_large"
+                    app:progressView_min="0"
+                    app:progressView_max="300"
+                    app:progressView_colorGradientStart="@color/teal_700"
+                    app:progressView_colorGradientEnd="@color/teal_700"
+                    app:progressView_autoAnimate="true"
+                    app:layout_constraintBottom_toBottomOf="@id/exp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/progressHp"
+                    app:layout_constraintTop_toTopOf="@id/exp"
+                    app:progressView_colorBackground="@color/white"
+                    app:progressView_colorProgress="@color/purple_500"
+                    app:progressView_labelColorInner="@color/white"
+                    app:progressView_labelColorOuter="@color/black"
+                    app:progressView_labelSize="@dimen/default_text_size"
+                    app:progressView_radius="@dimen/default_margin_small" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/pokeTypeRecyclerView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/default_margin"
+                    android:layout_marginTop="@dimen/default_margin"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/detailPokeName"
+                    tools:itemCount="3"
+                    tools:listitem="@layout/poke_type_item"/>
 
 
-            <TextView
-                android:id="@+id/tvdBase_Exp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Base_Exp" />
-
-            <TextView
-                android:id="@+id/tvdForm_List"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Form_List" />
-
-            <TextView
-                android:id="@+id/tvdGame_Index"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Game_Index" />
-
-            <TextView
-                android:id="@+id/tvdHeld_Items"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Held_Items" />
-
-            <TextView
-                android:id="@+id/tvdMovies_list"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Movies-List" />
-
-            <TextView
-                android:id="@+id/tvdOrder"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Order" />
-
-            <TextView
-                android:id="@+id/tvdSpecies"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Species" />
-
-            <TextView
-                android:id="@+id/tvdStarts"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Starts" />
-
-            <TextView
-                android:id="@+id/tvdType"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Type" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
 
 
-        </LinearLayout>
 
-    </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+<!--    <TextView-->
+<!--        android:id="@+id/tvdName"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="Pokimon Detail"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textColor="@color/black"-->
+<!--        android:textSize="30sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.5"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        tools:ignore="MissingConstraints" />-->
+
+<!--    <ImageView-->
+<!--        android:id="@+id/ivdImage"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="50dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        tools:ignore="MissingConstraints" />-->
+
+<!--    <androidx.core.widget.NestedScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        tools:ignore="MissingConstraints">-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical">-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tvdWeight"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="weight" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tvdHeigth"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Heigth" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tvdAbilities"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Abilities" />-->
+
+
+<!--            <TextView-->
+<!--                android:id="@+id/tvdBase_Exp"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Base_Exp" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tvdForm_List"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Form_List" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tvdGame_Index"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Game_Index" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tvdHeld_Items"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Held_Items" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tvdMovies_list"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Movies-List" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tvdOrder"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Order" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tvdSpecies"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Species" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tvdStarts"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Starts" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/tvdType"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Type" />-->
+
+
+<!--        </LinearLayout>-->
+
+<!--    </androidx.core.widget.NestedScrollView>-->
     <!--    <RelativeLayout-->
     <!--        android:layout_width="match_parent"-->
     <!--        android:layout_height="wrap_content"-->
@@ -247,4 +549,4 @@
 
     <!--    </RelativeLayout>-->
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

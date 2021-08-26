@@ -19,4 +19,13 @@ data class Pokemon(
     val stats: List<Stat>,
     val types: List<Type>,
     val weight: Int
-)
+){
+
+    companion object {
+        const val maxHp = 300
+        const val maxAttack = 300
+        const val maxDefense = 300
+        const val maxSpeed = 300
+        const val maxExp = 300
+    }
+}

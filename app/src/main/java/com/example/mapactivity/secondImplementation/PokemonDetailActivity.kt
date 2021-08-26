@@ -9,6 +9,11 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.mapactivity.databinding.ActivityPokemonDetailBinding
 import com.example.mapactivity.secondImplementation.constants.Constants.POKEMON_IMAGE_BASE_URL
+import com.example.mapactivity.secondImplementation.data.Pokemon.Companion.maxAttack
+import com.example.mapactivity.secondImplementation.data.Pokemon.Companion.maxDefense
+import com.example.mapactivity.secondImplementation.data.Pokemon.Companion.maxExp
+import com.example.mapactivity.secondImplementation.data.Pokemon.Companion.maxHp
+import com.example.mapactivity.secondImplementation.data.Pokemon.Companion.maxSpeed
 import com.example.mapactivity.secondImplementation.network.ConnectivityLiveData
 import com.example.mapactivity.secondImplementation.network.PokemonDetailViewModel
 
@@ -20,21 +25,6 @@ private lateinit var endPoint: String
 class PokemonDetailActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
-//        val name: TextView=findViewById(R.id.tvdName)
-//        val image: ImageView=findViewById(R.id.ivdImage)
-//        val heigth: TextView=findViewById(R.id.tvdHeigth)
-//        val wiigth: TextView=findViewById(R.id.tvdWeight)
-//        val abilities: TextView=findViewById(R.id.tvdAbilities)
-//        val base_exp: TextView=findViewById(R.id.tvdBase_Exp)
-//        val form_list: TextView=findViewById(R.id.tvdForm_List)
-//        val game_index: TextView=findViewById(R.id.tvdGame_Index)
-//        val held_itmes: TextView=findViewById(R.id.tvdHeld_Items)
-//        val movies_list: TextView=findViewById(R.id.tvdMovies_list)
-//        val order: TextView=findViewById(R.id.tvdOrder)
-//        val species: TextView=findViewById(R.id.tvdSpecies)
-//        val stats: TextView=findViewById(R.id.tvdStarts)
-//        val type:TextView=findViewById(R.id.tvdType)
 
         super.onCreate(savedInstanceState)
         binding = ActivityPokemonDetailBinding.inflate(layoutInflater)
@@ -65,16 +55,54 @@ fun getPokemonDetails(endpoint : String){
             Log.d("TAG", "$it: log It")
             Log.d("TAG", "getPokemonDetails: capitalize", )
             //binding details to my textview
-            binding.tvdName.text = capitalizeName
-            binding.tvdHeigth.text = it.height.toString()
-            Log.d("TAG", "getPokemonDetails: after capitalize", )
+            binding.detailPokeName.text = capitalizeName
+            binding.height.text = (it.height.toString() + " M")
+            binding.weight.text = (it.weight.toString() + " KG")
+
+
+
+            /*Set-up Progress View*/
+
+            binding.progressHp.apply {
+                val hp: Int = (30..300).random()
+                progress = hp.toFloat()
+                max = maxHp.toFloat()
+                labelText = "$hp/$maxHp"
+            }
+
+            binding.progressAtk.apply {
+                val attack: Int = (30..300).random()
+                progress = attack.toFloat()
+                max = maxAttack.toFloat()
+                labelText = "$attack/$maxAttack"
+            }
+            binding.progressDef.apply {
+                val defense: Int = (30..300).random()
+                progress = defense.toFloat()
+                max = maxDefense.toFloat()
+                labelText = "$defense/$maxDefense"
+            }
+
+            binding.progressSpd.apply {
+                val speed: Int = (30..300).random()
+                progress = speed.toFloat()
+                max = maxSpeed.toFloat()
+                labelText = "$speed/$maxSpeed"
+            }
+            binding.progressExp.apply {
+                val exp: Int = (30..300).random()
+                progress = exp.toFloat()
+                max = maxExp.toFloat()
+                labelText = "$exp/$maxExp"
+            }
+
 
 
 //            Fetch image using glide
             Glide.with(this)
                 .load("$POKEMON_IMAGE_BASE_URL$endpoint.png")
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(binding.ivdImage)
+                .into(binding.detailImage)
         }else{
             Toast.makeText(this,"error", Toast.LENGTH_SHORT).show()
         }
@@ -95,62 +123,3 @@ fun getPokemonDetails(endpoint : String){
 }
 
 }
-
-
-//
-//    //Get url including endpoint from previous activity
-//    apiUrl = intent.getStringExtra("pokemonDetails").toString()
-//    //Get endpoint from url
-//    val splitUrl: List<String> = apiUrl.split("/")
-//    endPoint = splitUrl[splitUrl.size - 2]
-//    Log.d("GKB", "onCreate: $apiUrl")
-//    connectivityLiveData = ConnectivityLiveData(application)
-//    getPokemonDetails(endPoint)
-//}
-//
-//fun getPokemonDetails(endPoint: String) {
-//    val viewModel = ViewModelProvider(this)[PokemonDetailViewModel::class.java]
-//    viewModel.pokemonDetailLiveData.observe(this, {
-//        //Update UI visibility
-//        if (it != null) {
-//            val capitalizeName = it.name[0].uppercase() + it.name.substring(1)
-//
-//            //Set fetched texts to textviews
-//            binding.tvdGameIndex.text = it.id.toString()
-//            binding.tvdAbilities.text = it.base_experience.toString()
-//            binding.tvdHeigth.text = it.height.toString()
-//            binding.tvdName.text = it.weight.toString()
-////                binding.detailPageName.text = capitalizeName
-//            binding.tvdHeigth.text = it.stats[0].base_stat.toString()
-////                binding.attackValue.text = it.stats[1].base_stat.toString()
-////                binding.tvdSpecies.text = it.stats[2].base_stat.toString()
-////                binding.specialAttackValue.text = it.stats[3].base_stat.toString()
-////                binding.specialDefenceValue.text = it.stats[4].base_stat.toString()
-////                binding.speedValue.text = it.stats[5].base_stat.toString()
-//
-//
-////Fetch image using glide
-//            Glide.with(this)
-//                .load("$POKEMON_IMAGE_BASE_URL${this.endPoint}.png")
-//                .diskCacheStrategy(DiskCacheStrategy.ALL)
-//                .into(binding.ivdImage)
-//
-//        } else {
-//            Log.d("TAG", "makeApiCallFromViewModel: Error fetching data")
-//            Toast.makeText(this, "Error fetching data", Toast.LENGTH_SHORT).show()
-//        }
-//    })
-//    connectivityLiveData.observe(this, { isAvailable ->
-//        when(isAvailable) {
-//            true -> {
-//                viewModel.getPokemonDetail(endPoint)
-//                //Handle UI views
-//            }
-//            false -> {
-//                //Handle UI
-//                Toast.makeText(this, "Network is unavailable", Toast.LENGTH_SHORT)
-//                    .show()
-//            }
-//        }
-//    })
-//}

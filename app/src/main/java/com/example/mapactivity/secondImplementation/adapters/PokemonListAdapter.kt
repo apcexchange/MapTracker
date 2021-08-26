@@ -56,6 +56,8 @@ class PokemonListAdapter(val context: Context, private var onClickPokemon: OnCli
         holder.txt_pokemonNuber.text = "#$pokemonNumber"
 
 
+
+
         //Set background colour based on position
 //        if (pokemonNumber.toInt()%2 == 0){
 //            holder.layout.setBackgroundResource(R.drawable.bright_vault_gradient)
@@ -66,6 +68,10 @@ class PokemonListAdapter(val context: Context, private var onClickPokemon: OnCli
 //        }else{
 //            holder.layout.setBackgroundResource(R.drawable.miami_dolphins_gradient)
 //        }
+
+
+
+
         //Fetch image using glide
         Glide.with(context)
             .load("$POKEMON_IMAGE_BASE_URL$pokemonNumber.png")
