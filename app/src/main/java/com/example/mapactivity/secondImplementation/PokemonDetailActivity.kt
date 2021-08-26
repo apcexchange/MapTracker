@@ -60,7 +60,6 @@ fun getPokemonDetails(endpoint : String){
             binding.weight.text = (it.weight.toString() + " KG")
 
 
-
             /*Set-up Progress View*/
 
             binding.progressHp.apply {
@@ -96,6 +95,7 @@ fun getPokemonDetails(endpoint : String){
                 labelText = "$exp/$maxExp"
             }
 
+            Log.d("TAG", "getPokemonDetails: after capitalize", )
 
 
 //            Fetch image using glide
