@@ -37,7 +37,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private lateinit var locationRequest: LocationRequest
     private lateinit var locationCallback: LocationCallback
     lateinit var databaseRef: DatabaseReference
-//    private var database: FirebaseDatabase = FirebaseDatabase.getInstance()
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private lateinit var toolbar: androidx.appcompat.widget.Toolbar
     private lateinit var button: Button
@@ -47,6 +46,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         super.onCreate(savedInstanceState)
         binding = ActivityMapsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
@@ -209,10 +209,9 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             if (grantResults.size == 1 && grantResults[0] == (PackageManager.PERMISSION_GRANTED)) {
                 getLocationAccess()
             } else {
-//                text.visibility = View.VISIBLE
+                    Toast.makeText(this,"permission denied",Toast.LENGTH_LONG).show()
                 Log.e(TAG, "Location permission has been denied")
-                text.visibility = View.VISIBLE
-                button.visibility =View.VISIBLE
+
             }
         }
     }
@@ -233,13 +232,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                         snapshot.child(path).getValue(Location::class.java)
                     val locationLat = locatingPartner?.latitude
                     val locationLong = locatingPartner?.longitude
-//                    button.setOnClickListener {
+
                     // check if the latitude and longitude is not null
                     if (locationLat != null && locationLong != null) {
                         // create a LatLng object from location
                         val latLng = LatLng(locationLat,locationLong)
-                        Log.d("ADDD", "LAT: $locationLat")
-                        Log.d("ADDD", "LONG: $locationLong")
+                        Log.d("TAG", "LAT: $locationLat")
+                        Log.d("TAG", "LONG: $locationLong")
                         //create a marker at the read location and display it on the map
                         map.clear()
                         map.addMarker(

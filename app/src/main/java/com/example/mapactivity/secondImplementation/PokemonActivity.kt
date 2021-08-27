@@ -4,6 +4,8 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
@@ -27,6 +29,7 @@ class PokemonActivity : AppCompatActivity(), OnClickPokemon {
     var limit: Int = 20
 
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityPokemonBinding.inflate(layoutInflater)
@@ -40,8 +43,9 @@ class PokemonActivity : AppCompatActivity(), OnClickPokemon {
         binding.recyclerView.setHasFixedSize(true)
         binding.recyclerView.layoutManager = GridLayoutManager(this,2)
 
+
         connectivityLiveData = ConnectivityLiveData(application)
-        makeApiCallFromViewModel(50,0)
+        makeApiCallFromViewModel(1110,0)
 
     }
 
@@ -49,6 +53,7 @@ class PokemonActivity : AppCompatActivity(), OnClickPokemon {
         val viewModel = ViewModelProvider(this)[PokemonListViewModel::class.java]
         viewModel.pokemonListLiveData.observe(this,{
             if (it != null){
+                binding.progressBar.visibility = View.GONE
 
 //                add to recyclerView
             val pokemons = it.results
@@ -67,6 +72,7 @@ class PokemonActivity : AppCompatActivity(), OnClickPokemon {
         connectivityLiveData.observe(this,{isAvalable->
             when(isAvalable){
                 true -> {
+                    Toast.makeText(this,"connected",Toast.LENGTH_LONG).show()
                     viewModel.makeApiCall(limit,offset)  //handles ui view
                 }
                 false -> {

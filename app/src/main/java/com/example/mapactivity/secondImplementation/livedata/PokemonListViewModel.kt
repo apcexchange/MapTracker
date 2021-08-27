@@ -1,5 +1,7 @@
 package com.example.mapactivity.secondImplementation.livedata
 
+import android.view.View
+import android.widget.ProgressBar
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.mapactivity.secondImplementation.data.PokemonList
@@ -23,6 +25,9 @@ class PokemonListViewModel : ViewModel() {
     var isSearching = MutableStateFlow(false)
 
     fun makeApiCall(myLimit: Int, offset: Int){
+
+
+
         val retrofitInstance = RetrofitClient.pokemonEndPoint().getData(myLimit, offset)
         retrofitInstance.enqueue(object : Callback<PokemonList> {
             override fun onResponse(

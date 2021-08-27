@@ -9,8 +9,11 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint_holder"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        >
+
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/detailImage"
@@ -40,7 +43,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:paddingBottom="@dimen/default_margin_large"
-                android:paddingTop="@dimen/default_margin">
+                android:paddingTop="@dimen/default_margin"
+                >
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/detailPokeName"
@@ -48,7 +52,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="@dimen/default_margin"
                     android:layout_marginTop="@dimen/default_margin"
-                    android:fontFamily="@font/montserrat_alternates_bold"
+                    android:fontFamily="@font/aclonica"
                     android:gravity="center"
                     android:padding="@dimen/default_margin_mini"
                     android:text="@string/pokeName"
@@ -62,7 +66,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/default_margin"
-                    android:fontFamily="@font/montserrat_alternates_bold"
+                    android:fontFamily="@font/aclonica"
                     android:text="@string/pokeWeight"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toStartOf="@+id/detailPokeHeight"
@@ -75,7 +79,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/default_margin"
-                    android:fontFamily="@font/montserrat_alternates_bold"
+                    android:fontFamily="@font/aclonica"
                     android:text="@string/pokeHeight"
                     android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -88,7 +92,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/default_margin_small"
-                    android:fontFamily="@font/montserrat_alternates_bold"
+                    android:fontFamily="@font/aclonica"
                     android:text="@string/weight"
                     app:layout_constraintEnd_toEndOf="@+id/detailPokeWeight"
                     app:layout_constraintStart_toStartOf="@+id/detailPokeWeight"
@@ -100,7 +104,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/height"
                     android:layout_margin="@dimen/default_margin_small"
-                    android:fontFamily="@font/montserrat_alternates_bold"
+                    android:fontFamily="@font/aclonica"
                     app:layout_constraintEnd_toEndOf="@+id/detailPokeHeight"
                     app:layout_constraintStart_toStartOf="@+id/detailPokeHeight"
                     app:layout_constraintTop_toBottomOf="@+id/detailPokeHeight" />
@@ -114,7 +118,7 @@
                     android:layout_marginTop="@dimen/default_margin_large"
                     android:gravity="center"
                     android:text="@string/base_stats"
-                    android:fontFamily="@font/montserrat_alternates_bold"
+                    android:fontFamily="@font/aclonica"
                     android:textSize="18sp"
                     app:layout_constraintTop_toBottomOf="@+id/weight"
                     />
@@ -126,7 +130,7 @@
                     android:layout_marginStart="@dimen/default_margin_large"
                     android:layout_marginTop="@dimen/default_margin_small"
                     android:text="@string/hp"
-                    android:fontFamily="@font/montserrat_alternates_bold"
+                    android:fontFamily="@font/aclonica"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/baseStatsTitle" />
 
@@ -139,17 +143,15 @@
                     app:layout_constraintStart_toEndOf="@+id/hp"
                     app:layout_constraintEnd_toEndOf="parent"
                     android:layout_marginStart="28dp"
+                    android:layout_marginEnd="24dp"
                     app:progressView_autoAnimate="true"
                     app:progressView_colorBackground="@color/background"
-                    app:progressView_colorGradientEnd="@color/ghost"
-                    app:progressView_colorGradientStart="@color/ghost"
-                    app:progressView_colorProgress="@color/design_default_color_secondary"
                     app:progressView_labelColorInner="@color/white"
                     app:progressView_labelColorOuter="@color/black"
                     app:progressView_labelSize="14sp"
                     app:progressView_max="300"
                     app:progressView_min="0"
-                    app:progressView_radius="@dimen/default_margin_small"/>
+                    app:progressView_radius="8dp"/>
                 <TextView
                     android:id="@+id/attack"
                     android:layout_width="wrap_content"
@@ -157,7 +159,7 @@
                     android:layout_marginStart="@dimen/default_margin_large"
                     android:layout_marginTop="@dimen/default_margin_small"
                     android:text="@string/atk"
-                    android:fontFamily="@font/montserrat_alternates_bold"
+                    android:fontFamily="@font/aclonica"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/hp" />
 
@@ -170,18 +172,16 @@
                     app:progressView_min="0"
                     app:progressView_max="300"
                     app:progressView_autoAnimate="true"
-                    app:progressView_colorGradientStart="@color/green"
-                    app:progressView_colorGradientEnd="@color/green"
                     app:layout_constraintBottom_toBottomOf="@id/attack"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/attack"
                     app:layout_constraintTop_toTopOf="@id/attack"
                     app:progressView_colorBackground="@color/background"
-                    app:progressView_colorProgress="@color/design_default_color_secondary"
+                    app:progressView_colorProgress="@color/red"
                     app:progressView_labelColorInner="@color/white"
                     app:progressView_labelColorOuter="@color/black"
                     app:progressView_labelSize="@dimen/default_text_size"
-                    app:progressView_radius="@dimen/default_margin_small" />
+                    app:progressView_radius="8dp" />
 
                 <TextView
                     android:id="@+id/defense"
@@ -190,7 +190,7 @@
                     android:layout_marginStart="@dimen/default_margin_large"
                     android:layout_marginTop="@dimen/default_margin_small"
                     android:text="@string/def"
-                    android:fontFamily="@font/montserrat_alternates_bold"
+                    android:fontFamily="@font/aclonica"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/attack" />
 
@@ -202,19 +202,17 @@
                     android:layout_marginStart="20dp"
                     app:progressView_min="0"
                     app:progressView_max="300"
-                    app:progressView_colorGradientStart="@color/water"
-                    app:progressView_colorGradientEnd="@color/water"
                     app:progressView_autoAnimate="true"
                     app:layout_constraintBottom_toBottomOf="@id/defense"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/defense"
                     app:layout_constraintTop_toTopOf="@id/defense"
                     app:progressView_colorBackground="@color/background"
-                    app:progressView_colorProgress="@color/design_default_color_secondary"
+                    app:progressView_colorProgress="@color/blue"
                     app:progressView_labelColorInner="@color/white"
                     app:progressView_labelColorOuter="@color/black"
                     app:progressView_labelSize="@dimen/default_text_size"
-                    app:progressView_radius="@dimen/default_margin_small" />
+                    app:progressView_radius="8dp" />
 
                 <TextView
                     android:id="@+id/speed"
@@ -223,7 +221,7 @@
                     android:layout_marginStart="@dimen/default_margin_large"
                     android:layout_marginTop="@dimen/default_margin_small"
                     android:text="@string/spd"
-                    android:fontFamily="@font/montserrat_alternates_bold"
+                    android:fontFamily="@font/aclonica"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/defense" />
 
@@ -235,19 +233,17 @@
                     android:layout_marginStart="20dp"
                     app:progressView_min="0"
                     app:progressView_max="300"
-                    app:progressView_colorGradientStart="@color/fairy"
-                    app:progressView_colorGradientEnd="@color/psychic"
                     app:progressView_autoAnimate="true"
                     app:layout_constraintBottom_toBottomOf="@id/speed"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/speed"
                     app:layout_constraintTop_toTopOf="@id/speed"
                     app:progressView_colorBackground="@color/background"
-                    app:progressView_colorProgress="@color/design_default_color_secondary"
+                    app:progressView_colorProgress="@color/yellow"
                     app:progressView_labelColorInner="@color/white"
                     app:progressView_labelColorOuter="@color/black"
                     app:progressView_labelSize="@dimen/default_text_size"
-                    app:progressView_radius="@dimen/default_margin_small" />
+                    app:progressView_radius="8dp" />
 
                 <TextView
                     android:id="@+id/exp"
@@ -256,7 +252,7 @@
                     android:layout_marginStart="@dimen/default_margin_large"
                     android:layout_marginTop="@dimen/default_margin_small"
                     android:text="@string/exp"
-                    android:fontFamily="@font/montserrat_alternates_bold"
+                    android:fontFamily="@font/aclonica"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/speed" />
 
@@ -268,19 +264,17 @@
                     android:layout_marginStart="20dp"
                     app:progressView_min="0"
                     app:progressView_max="300"
-                    app:progressView_colorGradientStart="@color/teal_700"
-                    app:progressView_colorGradientEnd="@color/teal_700"
                     app:progressView_autoAnimate="true"
                     app:layout_constraintBottom_toBottomOf="@id/exp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/exp"
                     app:layout_constraintTop_toTopOf="@id/exp"
                     app:progressView_colorBackground="@color/background"
-                    app:progressView_colorProgress="@color/purple_500"
+                    app:progressView_colorProgress="@color/grass"
                     app:progressView_labelColorInner="@color/white"
                     app:progressView_labelColorOuter="@color/black"
                     app:progressView_labelSize="@dimen/default_text_size"
-                    app:progressView_radius="@dimen/default_margin_small" />
+                    app:progressView_radius="8dp" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/pokeTypeRecyclerView"
@@ -295,6 +289,20 @@
                     app:layout_constraintTop_toBottomOf="@+id/detailPokeName"
                     tools:itemCount="3"
                     tools:listitem="@layout/poke_type_item"/>
+
+                <ProgressBar
+                    android:id="@+id/progressBar2"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:elevation="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:visibility="visible"
+                    />
+
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
